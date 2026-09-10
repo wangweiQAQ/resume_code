@@ -94,7 +94,9 @@ export const useResumeStore = defineStore('resume', () => {
         { name: 'Trae', level: 'Level1' },
         { name: 'Claude', level: 'Level1' },
         { name: 'Cursor', level: 'Level2' },
-        { name: 'ChatGPT', level: 'Level2' },
+        { name: 'Codex', level: 'Level2' },
+        { name: '通义', level: 'Level2' },
+        { name: 'Kimi', level: 'Level2' },
       ]
     },
     {
