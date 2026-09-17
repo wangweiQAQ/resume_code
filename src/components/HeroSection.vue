@@ -93,14 +93,14 @@
               <path d="M5 12h14M12 5l7 7-7 7"/>
             </svg>
           </a>
-          <!-- <button class="btn btn-outline" @click="downloadResume">
+          <button class="btn btn-outline" @click="downloadResume">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
               <polyline points="7 10 12 15 17 10"/>
               <line x1="12" y1="15" x2="12" y2="3"/>
             </svg>
             <span>下载简历 PDF</span>
-          </button> -->
+          </button>
         </div>
       </div>
 
@@ -244,11 +244,21 @@ const scrollToSkills = () => {
 }
 
 /**
- * 下载简历（占位功能）
+ * 下载简历 PDF
+ * 使用说明：将简历 PDF 文件放置于 public/resume.pdf 位置即可
+ * 文件名/路径如需修改，请调整下方 resumeUrl
  */
-// const downloadResume = () => {
-//   alert('简历 PDF 下载功能 - 请在此处配置真实的简历文件链接')
-// }
+const downloadResume = () => {
+  const resumeUrl = './resume.pdf'
+  const link = document.createElement('a')
+  link.href = resumeUrl
+  link.download = `${personalInfo.value.name}-四年前端开发工程师简历.pdf`
+  // rel=noopener 防止新窗口被挂到原 window 上
+  link.rel = 'noopener'
+  document.body.appendChild(link)
+  link.click()
+  document.body.removeChild(link)
+}
 
 // 组件挂载后触发动画
 onMounted(() => {
